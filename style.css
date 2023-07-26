@@ -1,0 +1,37 @@
+body {
+  font-size: 50px;
+}
+#time {
+  text-align: center;
+  margin-top: 20%;
+}
+/* #image {
+  margin-top: 10%;
+  margin-left: 50%;
+  height: 200px;
+  width: 100px;
+} */
+
+.buttons {
+  text-align: center;
+  margin-top: 5%;
+}
+.button {
+  width: 150px;
+  height: 50px;
+  border: solid 3px rgb(232, 225, 240);
+  border-radius: 10px;
+  font-size: 25px;
+}
+.button:hover {
+  border-radius: 50%;
+}
+#start {
+  background-color: green;
+}
+#stop {
+  background-color: red;
+}
+#reset {
+  background-color: yellow;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6de016a02d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css"></link>
+  </head>
+  <body>
+    <!-- <div id="image"><i class="fa-solid fa-stopwatch"></i></div> -->
+
+    <h1 id="time">
+      00:00:00
+    </h1>
+
+    <div class="buttons">
+      <button onclick="startTimer(event)" id="start" class="button">Start</button>
+      <button onclick="stopTimer(event)" id="stop" class="button">Stop</button>
+      <button onClick="resetTimer(event)" id="reset" class="button">Reset</button>
+    </div>
+
+
+
+    <script>
+      let startButton = document.getElementById('start');
+      let stopButton = document.getElementById('stop');
+      let resetButton = document.getElementById('reset');
+
+      var hours = 0;
+      var seconds = 0;
+      var minutes = 0;
+      var milliseconds = 0;
+
+      let setIntervalid;
+      //startTimer function which will run when we click start button
+      function startTimer(event){
+        setIntervalid = setInterval(()=>{
+          //for every 100ms we will increase the milliseconds variable by 100
+          milliseconds += 100;
+          //if milliseconds greater than 1000 then we will get seconds by dividing milliseconds with 1000 and performing round off using floor function
+          if(milliseconds>=1000){
+            seconds = Math.floor(milliseconds/1000);
+          }
+          //if seconds reach 60 then we will get minutes by dividing seconds with 60 and performing round off using floor function
+          if(seconds>=60){
+            minutes = Math.floor(seconds/60);
+          }
+          //if minutes reach 60 then we will get hours by dividing minutes with 60 and performing round off using floor function
+          if(minutes>=60){
+            hours = Math.floor(minutes/60);
+          }
+          
+          document.getElementById('time').innerText=`${hours}:${minutes}:${seconds} ${milliseconds}`;
+        },100);
+        
+      }
+      //stopTimer function which will run when we click stop button
+      function stopTimer(event){
+        if(setIntervalid){
+          clearInterval(setIntervalid);
+        }
+      }
+      //resetTimer function which will run when we click reset button
+      function resetTimer(event){
+        //As we are resetting the time so we need to initialize hours,minutes,seconds and milliseconds to
+        hours=0;
+        seconds=0;
+        minutes=0;
+        milliseconds=0;
+        document.getElementById('time').innerText=`00:00:00`;
+      }
+    </script>
+
+
+
+
+  </body>
+</html>
