@@ -38,17 +38,17 @@
         setIntervalid = setInterval(()=>{
           //for every 100ms we will increase the milliseconds variable by 100
           milliseconds += 100;
-          //if milliseconds greater than 1000 then we will get seconds by dividing milliseconds with 1000 and performing round off using floor function
+          //if milliseconds reaches 1000 then we will increment seconds by 1 and re-initialise the milliseconds to 0
           if(milliseconds == 1000){
             seconds ++;
             milliseconds=0;
           }
-          //if seconds reach 60 then we will get minutes by dividing seconds with 60 and performing round off using floor function
+          //if seconds reach 60 then we will increment minutes by 1 and re-initialise the seconds to 0
           if(seconds == 60){
             minutes ++;
             seconds=0;
           }
-          //if minutes reach 60 then we will get hours by dividing minutes with 60 and performing round off using floor function
+          //if minutes reach 60 then we will increment hours by 1 and re-initialise the minutes to 0
           if(minutes == 60){
             hours++;
             minutes=0;
